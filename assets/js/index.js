@@ -24,10 +24,21 @@ $(function () {
                     $('.layui-nav-img').show();
                     $('.layui-nav-img').prop('src', res.data.user_pic);
                 }
-            }
+            },
+
         })
     }
     getRenderInfo();
     window.getRenderInfo = getRenderInfo;
 
+
+
+
+    $("#quit").on('click', function (index) {
+        layer.confirm('确定退出登录?', { icon: 3, title: '提示' }, function (index) {
+            localStorage.removeItem('token');
+            location.href = './login.html';
+            layer.close(index);
+        });
+    })
 })
